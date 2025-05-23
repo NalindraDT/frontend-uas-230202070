@@ -17,3 +17,9 @@ https://github.com/NalindraDT/frontend-uas-230202070.git
 ```
 
 4. Jalankan composer install dan atur env, session driver menjadi file
+
+5. lakukan php spark serve di path backend dan php spark artisan di path frontend
+
+fitur tambahan:
+
+search bar
