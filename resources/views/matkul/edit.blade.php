@@ -11,13 +11,13 @@
 <div class="mt-8">
     <div class="bg-gray-800 overflow-hidden shadow-xl rounded-lg border-2 border-gray-600">
         <div class="px-4 py-5 sm:p-6">
-            <form action="{{ route('matkul.update', $matkul['id_matkul']) }}" method="POST">
+            <form action="{{ route('matkul.update', $matkul['kode_matkul']) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
-                        <label for="id_prodi" class="block text-sm font-medium text-gray-300">id prodi</label>
-                        <input type="text" name="id_prodi" id="id_prodi" value="{{ $prodi['id_prodi'] }}" class="mt-1 bg-gray-700 text-gray-400 block w-full shadow-sm sm:text-sm border-2 border-gray-500 rounded-md cursor-not-allowed" readonly>
+                        <label for="kode_matkul" class="block text-sm font-medium text-gray-300">id prodi</label>
+                        <input type="text" name="kode_matkul" id="kode_matkul" value="{{ $matkul['kode_matkul'] }}" class="mt-1 bg-gray-700 text-gray-400 block w-full shadow-sm sm:text-sm border-2 border-gray-500 rounded-md cursor-not-allowed" readonly>
                     </div>
 
                     <div>

@@ -11,18 +11,18 @@
 <div class="mt-8">
     <div class="bg-gray-800 overflow-hidden shadow-xl rounded-lg border-2 border-gray-600">
         <div class="px-4 py-5 sm:p-6">
-            <form action="{{ route('mahasiswa.update', $npm['npm']) }}" method="POST">
+            <form action="{{ route('mahasiswa.update', $mahasiswa['npm']) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
                         <label for="npm" class="block text-sm font-medium text-gray-300">NPM</label>
-                        <input type="text" name="npm" id="npm" value="{{ $npm['npm'] }}" class="mt-1 bg-gray-700 text-gray-400 block w-full shadow-sm sm:text-sm border-2 border-gray-500 rounded-md cursor-not-allowed" readonly>
+                        <input type="text" name="npm" id="npm" value="{{ $mahasiswa['npm'] }}" class="mt-1 bg-gray-700 text-gray-400 block w-full shadow-sm sm:text-sm border-2 border-gray-500 rounded-md cursor-not-allowed" readonly>
                     </div>
 
                     <div>
                         <label for="nama_mhs" class="block text-sm font-medium text-gray-300">Nama mahasiswa</label>
-                        <input type="text" name="nama_mhs" id="nama_mhs" value="{{ old('nama_mhs', $npm['nama_mhs']) }}" class="mt-1 block w-full bg-gray-900 text-white border-2 border-gray-500 rounded-md shadow-sm sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 hover:border-gray-400 transition-colors @error('nama_mhs') border-red-500 @enderror" required>
+                        <input type="text" name="nama_mhs" id="nama_mhs" value="{{ old('nama_mhs', $mahasiswa['nama_mhs']) }}" class="mt-1 block w-full bg-gray-900 text-white border-2 border-gray-500 rounded-md shadow-sm sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 hover:border-gray-400 transition-colors @error('nama_mhs') border-red-500 @enderror" required>
                         @error('nama_mhs')
                         <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -30,7 +30,7 @@
 
                     <div>
                         <label for="kode_kelas" class="block text-sm font-medium text-gray-300">Kode kelas</label>
-                        <input type="text" name="kode_kelas" id="kode_kelas" value="{{ old('kode_kelas', $npm['kode_kelas']) }}" class="mt-1 block w-full bg-gray-900 text-white border-2 border-gray-500 rounded-md shadow-sm sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 hover:border-gray-400 transition-colors @error('kode_kelas') border-red-500 @enderror" required>
+                        <input type="text" name="kode_kelas" id="kode_kelas" value="{{ old('kode_kelas', $mahasiswa['kode_kelas']) }}" class="mt-1 block w-full bg-gray-900 text-white border-2 border-gray-500 rounded-md shadow-sm sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 hover:border-gray-400 transition-colors @error('kode_kelas') border-red-500 @enderror" required>
                         @error('kode_kelas')
                         <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -38,7 +38,7 @@
 
                     <div>
                         <label for="id_prodi" class="block text-sm font-medium text-gray-300">ID prodi</label>
-                        <input type="text" name="id_prodi" id="id_prodi" value="{{ old('id_prodi', $npm['id_prodi']) }}" class="mt-1 block w-full bg-gray-900 text-white border-2 border-gray-500 rounded-md shadow-sm sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 hover:border-gray-400 transition-colors @error('id_prodi') border-red-500 @enderror" required>
+                        <input type="text" name="id_prodi" id="id_prodi" value="{{ old('id_prodi', $mahasiswa['id_prodi']) }}" class="mt-1 block w-full bg-gray-900 text-white border-2 border-gray-500 rounded-md shadow-sm sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 hover:border-gray-400 transition-colors @error('id_prodi') border-red-500 @enderror" required>
                         @error('id_prodi')
                         <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                         @enderror

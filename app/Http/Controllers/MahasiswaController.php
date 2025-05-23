@@ -36,8 +36,8 @@ class MahasiswaController extends Controller
         $request->validate([
             'npm' => 'required',
             'nama_mhs' => 'required',
-            'kode_kelas' =>'required',
-            'id_prodi' =>'required',
+            'kode_kelas' => 'required',
+            'id_prodi' => 'required',
 
         ]);
 
@@ -59,26 +59,27 @@ class MahasiswaController extends Controller
     {
         try {
             $response = Http::get("{$this->baseUrl}/{$npm}");
-            $npm = $response->json();
-            $npm = $npm[0] ?? null;
+            $mahasiswa = $response->json();
 
-            if (!$npm) {
-                return back()->with('error', 'npm tidak ditemukan');
+            if (!$mahasiswa) {
+                return back()->with('error', 'Data mahasiswa tidak ditemukan');
             }
 
-            return view('mahasiswa.edit', compact('npm'));
+            return view('mahasiswa.edit', compact('mahasiswa'));
         } catch (\Exception $e) {
             return back()->with('error', 'Gagal mengambil data: ' . $e->getMessage());
         }
     }
+
+
 
     public function update(Request $request, $npm)
     {
         $request->validate([
             'npm' => 'required',
             'nama_mhs' => 'required',
-            'kode_kelas' =>'required',
-            'id_prodi' =>'required',
+            'kode_kelas' => 'required',
+            'id_prodi' => 'required',
         ]);
 
         try {

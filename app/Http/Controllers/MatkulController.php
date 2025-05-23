@@ -11,7 +11,7 @@ class MatkulController extends Controller
 
     public function __construct()
     {
-        $this->baseUrl = 'http://localhost:8080/matkul';
+        $this->baseUrl = 'http://localhost:8080/matakuliah';
     }
 
     public function index()
@@ -75,8 +75,8 @@ class MatkulController extends Controller
     {
         $request->validate([
             'nama_matkul' => 'required',
-            'sks' => 'sks',
-            'semester' => 'semester',
+            'sks' => 'required',
+            'semester' => 'required',
 
         ]);
 

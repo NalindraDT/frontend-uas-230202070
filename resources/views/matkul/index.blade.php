@@ -31,18 +31,17 @@
             <tbody id="prodiTable" class="divide-y divide-gray-700">
                 @if(isset($matkulss) && is_array($matkulss) && count($matkulss) > 0)
                 @foreach($matkulss as $matkul)
+                @if(is_array($matkul) && isset($matkul['nama_matkul'], $matkul['kode_matkul'], $matkul['sks'], $matkul['semester']))
                 <tr class="prodi-row">
                     <td class="px-6 py-4">{{ $matkul['nama_matkul'] }}</td>
                     <td class="px-6 py-4">{{ $matkul['kode_matkul'] }}</td>
                     <td class="px-6 py-4">{{ $matkul['sks'] }}</td>
                     <td class="px-6 py-4">{{ $matkul['semester'] }}</td>
                     <td class="px-6 py-4 space-x-2">
-                        <a href="{{ route('matkul.edit', $matkul['kode_matkul']) }}"
-                            class="text-indigo-400 hover:text-indigo-200">
+                        <a href="{{ route('matkul.edit', $matkul['kode_matkul']) }}" class="text-indigo-400 hover:text-indigo-200">
                             <i class="fas fa-edit"></i> Edit
                         </a>
-                        <form action="{{ route('matkul.destroy', $matkul['kode_matkul']) }}" method="POST"
-                            class="inline-block"
+                        <form action="{{ route('matkul.destroy', $matkul['kode_matkul']) }}" method="POST" class="inline-block"
                             onsubmit="return confirm('Apakah Anda yakin ingin menghapus prodi ini?')">
                             @csrf
                             @method('DELETE')
@@ -52,7 +51,9 @@
                         </form>
                     </td>
                 </tr>
+                @endif
                 @endforeach
+
                 @else
                 <tr>
                     <td colspan="3" class="text-center py-4 text-gray-400">Tidak ada data prodi</td>
@@ -75,7 +76,10 @@
             rows.forEach(row => {
                 const nama = row.cells[0].textContent.toLowerCase();
                 const id = row.cells[1].textContent.toLowerCase();
-                const match = nama.includes(keyword) || id.includes(keyword);
+                const sks = row.cells[2].textContent.toLowerCase();
+                const semester = row.cells[3].textContent.toLowerCase();
+
+                const match = nama.includes(keyword) || id.includes(keyword) || sks.includes(keyword) || semester.includes(keyword);
                 row.style.display = match ? '' : 'none';
             });
         });
