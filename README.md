@@ -11,4 +11,9 @@ https://github.com/Arfilal/backend_sinilai.git
 https://github.com/HanaKurnia/database_pbf
 ```
 
-3. 
+3. Git clone front end ini
+```
+https://github.com/NalindraDT/frontend-uas-230202070.git
+```
+
+4. Jalankan composer install dan atur env, session driver menjadi file
