@@ -202,6 +202,43 @@ class ModelMahasiswa extends Model
 }
 ```
 
+- ModelMataKuliah:
+```php
+<?php
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class ModelMataKuliah extends Model
+{
+    protected $table = "mata_kuliah";
+    protected $primaryKey = "kode_matkul";
+    protected $allowedFields = ['kode_matkul', 'nama_matkul', 'semester', 'sks'];
+    
+    protected $validationRules = [
+        'kode_matkul' =>'required',
+        'nama_matkul' =>'required',
+        'semester' =>'required',
+        'sks' =>'required',
+    
+    ];
+    protected $validationMessages = [
+        'kode_matkul'=>[
+            'required'=>'silahkan masukan kode matkul'
+        ],
+        'nama_matkul'=>[
+            'required'=>'silahkan masukan nama matkul'
+        ],
+        'semester'=>[
+            'required'=>'silahkan masukan semester'
+        ],
+        'sks'=>[
+            'required'=>'silahkan masukan sks'
+        ],
+    ];
+}
+```
+
 
 ## 2. Ambil database dari repo ini
 
@@ -235,7 +272,7 @@ https://github.com/NalindraDT/frontend-uas-230202070.git
 
 ## 4. Jalankan composer install dan atur env, session driver menjadi file
 
-5. lakukan php spark serve di path backend dan php spark artisan di path frontend
+## 5. lakukan php spark serve di path backend dan php spark artisan di path frontend
 
 fitur tambahan:
 
